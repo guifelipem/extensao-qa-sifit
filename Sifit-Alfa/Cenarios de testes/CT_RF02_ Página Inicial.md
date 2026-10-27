@@ -2,7 +2,7 @@
 
 **Módulo:** Dashboard  
 **Rotas observadas:** `/dashboard`  
-**Situação:** planejamento; nenhum caso executado formalmente.
+**Situação:** DASH-01 executado em 27/10/2026; validação dos valores pendente por falta de dados de referência.
 
 > Os resultados esperados são hipóteses de teste baseadas na interface, ainda dependentes de execução e, quando necessário, confirmação das regras de negócio.
 
@@ -12,7 +12,7 @@
 | --- | --- |
 | DASH-01 | Consultar indicadores por intervalo selecionado. |
 | Prioridade | P1 |
-| Situação | Não executado |
+| Situação | Bloqueado em 27/10/2026 para conclusão do critério completo |
 
 | Pré-condições |
 | --- |
@@ -31,6 +31,6 @@
 
 | Resultado obtido | Evidência | Status de execução |
 | --- | --- | --- |
-| Não registrado | Não anexada | Não executado |
+| O período foi alterado e os indicadores visíveis mudaram (por exemplo, matrículas no período: 4 para 0; desistências no período: 3 para 2). A gravação não compara os valores com registros de datas conhecidas nem comprova a coerência de todas as listas. | [Jam DASH-01 — Filtro por período](https://jam.dev/c/dd7f029c-a76d-4415-8cdc-8319cd93a39b) | Bloqueado: falta base de dados conhecida para validar a exatidão |
 
 ---

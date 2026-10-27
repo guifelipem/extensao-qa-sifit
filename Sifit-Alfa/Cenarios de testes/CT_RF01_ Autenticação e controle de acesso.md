@@ -2,7 +2,7 @@
 
 **Módulo:** Autenticação  
 **Rotas observadas:** `/login, /dashboard`  
-**Situação:** planejamento; nenhum caso executado formalmente.
+**Situação:** AUT-01, AUT-02 e AUT-03 executados em 27/10/2026.
 
 > Os resultados esperados são hipóteses de teste baseadas na interface, ainda dependentes de execução e, quando necessário, confirmação das regras de negócio.
 
@@ -12,7 +12,7 @@
 | --- | --- |
 | AUT-01 | Abrir sessão com credenciais de demonstração válidas. |
 | Prioridade | P0 |
-| Situação | Não executado |
+| Situação | Passou em 27/10/2026 |
 
 | Pré-condições |
 | --- |
@@ -31,7 +31,7 @@
 
 | Resultado obtido | Evidência | Status de execução |
 | --- | --- | --- |
-| Não registrado | Não anexada | Não executado |
+| Após informar as credenciais válidas e clicar em Entrar, a aplicação navegou de `/login` para `/dashboard`. | [Jam AUT-01 — Login válido](https://jam.dev/c/0f8a7525-756a-4032-a231-00f3054e6de7) | Passou |
 
 ---
 
@@ -41,7 +41,7 @@
 | --- | --- |
 | AUT-02 | Impedir o acesso direto a páginas internas sem sessão. |
 | Prioridade | P0 |
-| Situação | Não executado |
+| Situação | Passou em 27/10/2026 |
 
 | Pré-condições |
 | --- |
@@ -59,7 +59,7 @@
 
 | Resultado obtido | Evidência | Status de execução |
 | --- | --- | --- |
-| Não registrado | Não anexada | Não executado |
+| Em janela anônima, a tentativa de abrir `/dashboard` terminou na tela de login, sem exibir o painel interno. | [Jam AUT-02 — Acesso sem autenticação](https://jam.dev/c/8400de22-65e8-403f-8d4d-2a57b766576b) | Passou |
 
 ---
 
@@ -69,7 +69,7 @@
 | --- | --- |
 | AUT-03 | Verificar o tratamento de credencial inválida. |
 | Prioridade | P1 |
-| Situação | Não executado |
+| Situação | Passou em 27/10/2026 |
 
 | Pré-condições |
 | --- |
@@ -88,6 +88,6 @@
 
 | Resultado obtido | Evidência | Status de execução |
 | --- | --- | --- |
-| Não registrado | Não anexada | Não executado |
+| Após tentar entrar com senha incorreta, a tela de login permaneceu aberta e exibiu a mensagem “O nome de usuário e senha não correspondem.” | [Jam AUT-03 — Login com credenciais inválidas](https://jam.dev/c/aef36c3c-e641-4acb-a8dc-a5b463de65ee) | Passou |
 
 ---

@@ -2,7 +2,7 @@
 
 Repositório de **documentação e planejamento de QA funcional** do [Sifit Alfa](https://sifitalfa.centrion.com.br/dashboard), seguindo a organização Markdown do projeto de referência enviado na atividade.
 
-> **Estado atual (20/10/2026):** exploração de interface realizada; **27 casos planejados, 0 casos executados formalmente, nenhuma evidência de execução ou bug confirmado**. Os critérios esperados são propostas a validar quando necessário, não resultados observados.
+> **Estado atual (27/10/2026):** exploração de interface realizada; **27 casos planejados, 10 executados ou tentados: 8 aprovados, 1 reprovado (MAT-02), 1 bloqueado (DASH-01), 17 não executados e 2 bugs confirmados**. CLI-02, MAT-01 e MAT-02 foram repetidos em outra URL; as tentativas anteriores continuam registradas.
 
 ## Objetivo
 
@@ -23,7 +23,7 @@ sifit-alfa-qa/
     ├── Cenarios de testes/
     │   └── CT_RF01 ... CT_RF12 (12 arquivos, 27 casos)
     └── Evidencias/
-        └── README.md (sem evidências)
+        └── README.md (índice das evidências Jam)
 ```
 
 ## Escopo
@@ -37,17 +37,17 @@ Os casos planejados incluem acesso, painel, clientes, matrículas, avaliações,
 - [Relatório de exploração](Sifit-Alfa/0-Relatorio%20de%20exploracao.md)
 - [Análise de requisitos candidatos](Sifit-Alfa/1-Analise%20de%20requisitos.md)
 - [Plano de testes](Sifit-Alfa/2-plano%20de%20testes.md)
-- [Relatório de bugs (sem registros)](Sifit-Alfa/3-Relatorio-de-Bugs.md)
-- [Relatório de execução (pré-execução)](Sifit-Alfa/4-%20Relatorio%20dos%20testes.md)
+- [Relatório de bugs (BUG-001 e BUG-002)](Sifit-Alfa/3-Relatorio-de-Bugs.md)
+- [Relatório de execução (em andamento)](Sifit-Alfa/4-%20Relatorio%20dos%20testes.md)
 - [Seleção e exclusões](Sifit-Alfa/5-Selecao%20de%20casos.md)
 - [Cenários de testes](Sifit-Alfa/Cenarios%20de%20testes/)
 
 ## Metodologia planejada
 
-Exploração visual inicial e testes funcionais manuais futuros com descrições no padrão DADO/E/QUANDO/ENTÃO. Cada caso tem pré-condições, passos resumidos, resultado esperado e campos de execução **sem preenchimento fictício**.
+Exploração visual inicial e testes funcionais manuais com descrições no padrão DADO/E/QUANDO/ENTÃO. Cada caso tem pré-condições, passos resumidos, resultado esperado e campos de execução preenchidos somente após evidência real.
 
 **Atenção ao ambiente:** ações que criam ou alteram dados precisam de autorização e registros descartáveis. Não executar cobranças ou mensagens reais sem ambiente isolado.
 
 ## Próximos passos
 
-Após confirmar os requisitos da disciplina e obter autorização para os testes: preparar massa fictícia, executar os 27 casos aplicáveis, registrar evidências e resultados reais, e somente então concluir os relatórios.
+Conferir DASH-01 com dados de datas conhecidas, acompanhar BUG-001 e BUG-002, executar os 17 casos ainda não realizados e concluir os relatórios somente após a bateria.

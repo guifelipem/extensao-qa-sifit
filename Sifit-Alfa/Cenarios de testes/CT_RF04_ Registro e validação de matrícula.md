@@ -2,17 +2,17 @@
 
 **Módulo:** Matrículas  
 **Rotas observadas:** `/matriculas, /adicionar-matricula`  
-**Situação:** planejamento; nenhum caso executado formalmente.
+**Situação:** na nova URL, MAT-01 passou e MAT-02 falhou em 27/10/2026. As tentativas anteriores na URL antiga permanecem documentadas.
 
 > Os resultados esperados são hipóteses de teste baseadas na interface, ainda dependentes de execução e, quando necessário, confirmação das regras de negócio.
 
-### Caso de Teste 01: Cadastro válido de matrícula.
+### Caso de Teste 01: Criação de matrícula e conta a receber vinculada.
 
 | ID / Campo | Descrição |
 | --- | --- |
-| MAT-01 | Criar matrícula de teste e verificar seus vínculos. |
+| MAT-01 | Criar matrícula de teste e verificar a confirmação e a conta a receber aberta no fluxo. |
 | Prioridade | P0 |
-| Situação | Não executado |
+| Situação | Passou em 27/10/2026 na nova URL |
 
 | Pré-condições |
 | --- |
@@ -22,26 +22,28 @@
 | --- |
 | **DADO** que o cadastro de matrícula está aberto |
 | **E** cliente, modalidade/plano, período e valores válidos são informados |
-| **QUANDO** salva a matrícula e consulta seus registros |
-| **ENTÃO** a matrícula aparece na listagem e no perfil do cliente |
+| **QUANDO** salva a matrícula |
+| **ENTÃO** a criação é confirmada e o fluxo abre a conta a receber vinculada |
 
 | Critérios de aceitação (propostos) |
 | --- |
-| Matrícula e vínculos consistentes com valores e datas informados. |
+| Confirmação de matrícula salva e abertura da conta a receber do cliente selecionado. Conferência na listagem e no perfil requer teste separado. |
 
 | Resultado obtido | Evidência | Status de execução |
 | --- | --- | --- |
-| Não registrado | Não anexada | Não executado |
+| Em `sifit.centrion.com.br`, após salvar, a interface exibiu “Matrícula salva” e abriu uma conta a receber vinculada ao cliente, com ID 1619. A gravação não confere a matrícula na listagem nem no perfil do cliente. | [Jam MAT-01 — Matrícula salva na nova URL](https://jam.dev/c/a271ab64-c64f-459c-8045-063f779c70ed) | Passou para criação da matrícula; conferência na listagem/perfil não realizada |
+
+**Histórico preservado:** na tentativa anterior em `sifitalfa.centrion.com.br`, o [Jam MAT-01](https://jam.dev/c/2f0ded45-dc0c-434b-99ed-993644db0bc5) registrou HTTP 400 e mensagem que citava Avaliações (BUG-001). A causa da rejeição não foi isolada.
 
 ---
 
-### Caso de Teste 02: Data ou valor inválido na matrícula.
+### Caso de Teste 02: Período invertido na matrícula.
 
 | ID / Campo | Descrição |
 | --- | --- |
-| MAT-02 | Verificar tratamento de período invertido ou valor negativo. |
+| MAT-02 | Verificar se a data final anterior à inicial é rejeitada. |
 | Prioridade | P0 |
-| Situação | Não executado |
+| Situação | Falhou em 27/10/2026 na nova URL — BUG-002 |
 
 | Pré-condições |
 | --- |
@@ -50,16 +52,18 @@
 | Passos (BDD / Gherkin simplificado) |
 | --- |
 | **DADO** que o cadastro de matrícula está aberto |
-| **E** a data final é anterior à inicial ou um valor informado é negativo |
+| **E** a data final é anterior à inicial |
 | **QUANDO** tenta salvar |
-| **ENTÃO** a entrada inválida é impedida ou tratada conforme regra documentada |
+| **ENTÃO** a matrícula com período invertido é impedida com uma mensagem explicativa |
 
 | Critérios de aceitação (propostos) |
 | --- |
-| Nenhum registro com período/valor incoerente; confirmar a regra de negócio antes da avaliação final. |
+| Nenhuma matrícula com data final anterior à inicial é salva. Valor negativo não faz parte desta execução. |
 
 | Resultado obtido | Evidência | Status de execução |
 | --- | --- | --- |
-| Não registrado | Não anexada | Não executado |
+| Em `sifit.centrion.com.br`, o formulário mostrou Data Inicial 29/10/2026 e Data Final 27/10/2026. Após salvar, apareceu “Matrícula salva” e o fluxo abriu a conta a receber de ID 1620. A ordem inválida não foi impedida. | [Jam MAT-02 — Período invertido aceito na nova URL](https://jam.dev/c/8e8d97e0-154e-4eae-9fc9-a05665f4e883) | Falhou — BUG-002 |
+
+**Histórico preservado:** na tentativa anterior em `sifitalfa.centrion.com.br`, o [Jam MAT-02](https://jam.dev/c/d0d8ebf9-700c-4006-b688-3889e19809a8) registrou HTTP 400 sem permitir atribuir a rejeição especificamente à ordem das datas.
 
 ---

@@ -3,12 +3,12 @@
 ### 1. **Identificação**
 
 - **Nome do projeto:** QA funcional do Sifit Alfa (gestão de academia).
-- **Ambiente observado:** https://sifitalfa.centrion.com.br/dashboard
+- **Ambientes observados:** primeiras execuções em https://sifitalfa.centrion.com.br/dashboard; novas execuções de CLI-02, MAT-01 e MAT-02 em https://sifit.centrion.com.br.
 - **Tipo de teste planejado:** testes funcionais manuais com evidência por caso.
 - **Exploração:** 20/10/2026 (America/Sao_Paulo).
 - **Versão da aplicação:** não identificada no relatório de exploração.
-- **Responsável pela execução e datas futuras:** ainda não definidos.
-- **Status:** planejamento concluído; **nenhum caso executado formalmente**.
+- **Primeira execução:** AUT-01 em 27/10/2026, Jam criado por Guilherme Morais.
+- **Status:** planejamento concluído; **10 casos distintos executados ou tentados (8 passaram, 1 falhou, 1 bloqueado), 17 não executados**.
 
 ---
 
@@ -24,7 +24,7 @@ Validar um recorte representativo das principais funcionalidades identificadas n
 
 **Excluído desta etapa:** 26 casos identificados na seleção, incluindo navegação ampla já mapeada, cadastros auxiliares, caixa, contas a pagar, SifitBox, integração Pagar.me, automações, mudanças globais de configuração e notificações. Motivos individualizados em `5-Selecao de casos.md`.
 
-**Limites:** a existência dos campos e botões não comprova validação, persistência nem regra de negócio. Nenhum bug está confirmado no momento.
+**Limites:** a existência dos campos e botões não comprova validação, persistência nem regra de negócio. BUG-001 confirma mensagem incorreta na primeira URL; BUG-002 documenta aceitação de período invertido na nova URL. A causa das rejeições HTTP 400 na URL anterior permanece desconhecida.
 
 ---
 
@@ -32,8 +32,8 @@ Validar um recorte representativo das principais funcionalidades identificadas n
 
 - **Ferramenta de exploração utilizada:** controle de navegador integrado à sessão autenticada, conforme relatório fornecido.
 - **Documentação:** arquivos Markdown para requisitos, cenários, acompanhamento e defeitos.
-- **Ferramenta de captura de evidências na execução:** ainda não informada.
-- **Navegador/versão e sistema operacional da futura execução:** ainda não informados.
+- **Ferramenta de captura de evidências na execução:** Jam.dev.
+- **Navegador/versão e sistema operacional da primeira execução:** Chrome 156.0.8078.48, Windows 11 (metadados do Jam AUT-01).
 
 ---
 
@@ -75,8 +75,8 @@ Validar um recorte representativo das principais funcionalidades identificadas n
 | --- | --- | --- |
 | Exploração da interface | Concluída | 20/10/2026 |
 | Seleção e documentação de 27 casos | Planejada/documentada | Com base na exploração e seleção desta conversa |
-| Execução formal dos casos | Não iniciada | Não definida |
-| Coleta de evidências e registro de defeitos | Não iniciada | Não definida |
+| Execução formal dos casos | Em andamento: oito passaram, MAT-02 falhou e DASH-01 segue bloqueado | 27/10/2026 |
+| Coleta de evidências e registro de defeitos | Evidências de dez casos distintos e três repetições registradas; BUG-001 e BUG-002 confirmados | 27/10/2026 |
 | Relatório de execução concluído | Pendente | Não definida |
 
 ---
@@ -98,7 +98,7 @@ Validar um recorte representativo das principais funcionalidades identificadas n
 | RF11 | Comercial | 2 | COM-02, COM-03 |
 | RF12 | Saúde / Anamnese | 2 | SAU-01, SAU-02 |
 
-**Total:** 27 casos; **executados:** 0.
+**Total:** 27 casos; **executados ou tentados:** 10 casos distintos; **não executados:** 17. DASH-01 exige dados de referência. CLI-02, MAT-01 e MAT-02 têm execuções adicionais na nova URL, preservadas no histórico.
 
 ---
 
@@ -126,6 +126,6 @@ Usar `3-Relatorio-de-Bugs.md` para registrar apenas defeitos confirmados por exe
 - Análise de requisitos candidatos.
 - Plano de testes e escopo reduzido.
 - 27 casos planejados em 12 arquivos de cenário.
-- Relatório de bugs sem ocorrências registradas (execução não iniciada).
-- Relatório de acompanhamento pré-execução (sem resultados inventados).
-- Diretório de evidências ainda vazio.
+- Relatório de bugs com BUG-001 e BUG-002 confirmados; retornos HTTP da URL anterior em investigação.
+- Relatório de acompanhamento da execução em andamento.
+- Índice de evidências com os vídeos dos dez casos distintos e das três repetições em outra URL.
